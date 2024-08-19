@@ -32,6 +32,7 @@ export const POST = serve<SignUpRequest>({
                 }
                 return 0
             } catch (error) {
+                console.log(error)
                 return -1
             }
         })
