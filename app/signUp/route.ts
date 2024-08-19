@@ -16,6 +16,8 @@ export const POST = serve<SignUpRequest>({
 
         await context.run("Save user to Redis DB", async () => {
             redis.set(req.username, req.name)
+
+            throw new Error('this step should retried');
         })
 
         context.sleep("wait", 2 * 60)
