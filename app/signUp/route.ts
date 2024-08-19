@@ -36,5 +36,9 @@ export const POST = serve<SignUpRequest>({
                 return -1
             }
         })
+
+        await context.run("this step will throw exception", async () => {
+            throw new Error("this is the error")
+        })
     }
 })
