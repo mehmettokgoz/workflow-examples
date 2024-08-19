@@ -25,7 +25,9 @@ export const POST = serve<SignUpRequest>({
                     subject: 'Hello world',
                     react: SignUpEmailTemplate({ firstName: 'Mehmet' }),
                 });
+
                 if (error) {
+                    console.log(error.message)
                     return -1
                 }
                 return 0
