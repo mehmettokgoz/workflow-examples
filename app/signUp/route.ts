@@ -13,11 +13,11 @@ export const POST = serve<SignUpRequest>({
     routeFunction: async context => {
         const req = context.requestPayload;
 
-        await context.run("Save user to Redis DB", async () => {
-            redis.set(req.username, req.name)
+        const res1 = await context.run("Save user to Redis DB", async () => {
+            return await redis.set(req.username, req.name)
         })
 
-        const res = context.run("Send email", async () => {
+        const res = await context.run("Send email", async () => {
             try {
                 const { data, error } = await resend.emails.send({
                     from: 'Mehmet <mehmet.tokgoz@upstash.com>',
