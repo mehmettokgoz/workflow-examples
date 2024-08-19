@@ -20,7 +20,7 @@ export const POST = serve<SignUpRequest>({
         const res = await context.run("Send email", async () => {
             try {
                 const { data, error } = await resend.emails.send({
-                    from: 'Mehmet <mehmeettokgoz@gmail.com>',
+                    from: 'Mehmet <mehmet@tokgoz.dev>',
                     to: ['mehmet.tokgoz@upstash.com'],
                     subject: 'Hello world',
                     react: SignUpEmailTemplate({ firstName: 'Mehmet' }),
