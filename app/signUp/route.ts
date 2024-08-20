@@ -37,8 +37,10 @@ export const POST = serve<SignUpRequest>({
             }
         })
 
-        await context.run("this step will throw exception", async () => {
+        const promise =  context.run("this step will throw exception", async () => {
             throw new Error("this is the error")
         })
-    }
+
+        await Promise.all([promise])
+    },
 })
